@@ -1,6 +1,6 @@
 # traffic_Controller
 
-prerequisite
+##prerequisite
 
 1.ubuntu os required
 
@@ -25,7 +25,7 @@ prerequisite
 
 Clone Project :- git clone https://github.com/shrikrishna359/traffic_Controller.git
 
-How to build?
+##How to build?
 
 1.Create directory build
 
