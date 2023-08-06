@@ -1,0 +1,66 @@
+@startuml "TrafficControl"
+
+class TrafficLight{
+- bool lightState
+void SwitchOn()
+void SwitchOff()
+}
+
+class TrafficPole{   
+    - TrafficLight Red
+    - TrafficLight Yellow
+    - TrafficLight Green
+    void Stop()
+    void Go()
+    void SlowDown()
+}
+
+class TrafficJunction{
+    - vector<TrafficControl *> vct_traffic_poles
+    - int noOfPole
+    TrafficJunction()
+    {
+        InitalizeTrafficPoles()
+    }
+    - InitalizeTrafficPoles(int noOfPole = 3)
+    void AllowTraffic(int poleNo)
+    void DisableTraffic(int poleNo)
+    void EnableSlowDown()
+   
+}
+
+class TrafficControl{
+    - TrafficJunction obj_TrafficJunction
+
+    enum Mode{
+       Invalid,
+       Auto,
+       Manual,
+       Night 
+    }
+    void TrafficHandler()
+    void AllowTraffic(int poleNo)
+    void SetMode(enum Mode)
+}
+class MessageQueue{
+    MessageQueue(){
+        create msgqueue
+    }
+
+}
+class userinputmessagequeue{
+    void sendmsg()
+    void recvmsg()
+}
+class userinput{
+    void Start()
+}
+
+userinput "1" --* "1" userinputmessagequeue
+userinputmessagequeue "1" --* "1" TrafficJunction
+TrafficJunction "1" --* "1" TrafficPole
+TrafficPole "1" --* "1" TrafficLight
+
+@enduml
+
+
