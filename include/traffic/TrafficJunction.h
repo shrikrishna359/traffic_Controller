@@ -18,13 +18,16 @@ class TrafficJunction
         void AllowTraffic(int PoleNo);
 
         void DisableTraffic();
-        
+
         void EnableSlowDown();
 
     private:
         int mNoOfPole;
         std::vector<std::unique_ptr<TrafficPole>> vct_trafficpole;
-        
+
+    FRIEND_TEST(testTrafficJunction, InitalizeTraffic); 
+    FRIEND_TEST(testTrafficJunction, AllowTraffic);
+    FRIEND_TEST(testTrafficJunction, EnableSlowDown);      
 };
 
 #endif  //#ifndef  TRAFFICJUNCTION_HPP

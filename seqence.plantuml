@@ -16,16 +16,43 @@ class TrafficPole{
 }
 
 class TrafficJunction{
-    - vector<TrafficControl *> vct_traffic_poles
+    
     - int noOfPole
-    TrafficJunction()
+    TrafficJunction(int noOfPole) :mnoOfPole(noOfPole)
     {
         InitalizeTrafficPoles()
     }
-    - InitalizeTrafficPoles(int noOfPole = 3)
+    InitalizeTrafficPoles()
+    {
+        
+        for()
+        {
+        std::unique_ptr<traffic pole> ptr_traffic_pole;
+        vec.push_back(std::move(ptr_traffic_pole));
+
+        }
+    }
     void AllowTraffic(int poleNo)
+    {
+        if(poleno<0 && )
+        {
+            for()
+            {
+                if (index not equal to (selected poleno -1)
+                {
+                    vct_trafficpole[itr]->stop(); //turning off all pole
+                }
+            }
+            vct_trafficpole[poleNo-1]->start();
+        }
+    }
     void DisableTraffic(int poleNo)
     void EnableSlowDown()
+    
+    private:
+    vector< trafficpoles*> vct_trafficpole;
+
+
    
 }
 
