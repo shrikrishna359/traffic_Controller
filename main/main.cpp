@@ -1,7 +1,6 @@
 #include "TrafficPole.h"
 int main()
 {
-    TrafficPole t;
-    t.Go();
+   // t.Go();
     return 0;
 }
