@@ -1,16 +1,27 @@
 # traffic_Controller
 
 prerequisite
+
 1.ubuntu os required
+
 2.Cmake installed
+
 	- sudo apt  install cmake
+ 
 3.Gtest installed
+
 	- sudo apt-get install libgtest-dev
+ 
 	- cd /usr/src/gtest
+ 
 	- sudo cmake CMakeLists.txt
+ 
 	- sudo make
+ 
 	- cd lib/
+ 
 	- sudo cp *.a /usr/lib
+ 
 
 Clone Project :- git clone https://github.com/shrikrishna359/traffic_Controller.git
 
