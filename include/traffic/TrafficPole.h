@@ -43,6 +43,14 @@ class TrafficPole
      */
     void SlowDown();   
 
+    /**
+     * @brief Method to blink yellow light
+     * @details Threadhandler function for blinking yellow light
+     *
+     * @coversreqs
+     * @req{TRAFFIC_SIGNAL_6}
+     * @endcoversreqs
+     */   
     void SlowdownThreadHandler();
     
     private:

@@ -8,8 +8,8 @@ TrafficJunction::InitalizeTrafficPoles()
 {
    for(int i = 0 ; i < mNoOfPole ; i++)
    {
-      std::unique_ptr<TrafficPole> ptr_traffic_pole = make_unique<TrafficPole>();
-      vct_trafficpole.push_back(std::move(ptr_traffic_pole));
+      std::unique_ptr<TrafficPole> ptr_traffic_pole = make_unique<TrafficPole>(); // Create unique pointer Traffic pole class
+      vct_trafficpole.push_back(std::move(ptr_traffic_pole));    // store mNoOfPole number of unique pointer in vct_trafficpole vector
    }
 }
 
@@ -25,7 +25,7 @@ TrafficJunction::AllowTraffic(int PoleNo)
             vct_trafficpole[i]->Stop(); //turning off all pole except selected pole
          }
       } 
-      vct_trafficpole[PoleNo - 1]->Go();
+      vct_trafficpole[PoleNo - 1]->Go(); //turning on Green light for selected Pole
    }
 }
 
@@ -34,16 +34,15 @@ TrafficJunction::DisableTraffic()
 {
    for(int i = 0; i < vct_trafficpole.size(); i++)
    {
-      vct_trafficpole[i]->Stop();
+      vct_trafficpole[i]->Stop(); // call Stop such that all pole should turn on red light
    }
 }
 
 void 
 TrafficJunction::EnableSlowDown()
-{
-   DisableTraffic();
+{ 
    for(int i = 0; i < vct_trafficpole.size(); i++)
    {
-      vct_trafficpole[i]->SlowDown();
+      vct_trafficpole[i]->SlowDown();  // call Slowdown such that all pole should blink yellow light
    }   
 }

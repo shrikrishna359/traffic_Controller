@@ -1,0 +1,31 @@
+ID	                 Requirements
+TRAFFIC_SIGNAL_1	Three Traffic Pole required
+
+TRAFFIC_SIGNAL_2	Each Traffic Pole should have Three lights green,red,yellow
+
+TRAFFIC_SIGNAL_3	AutoMode , Manual mode and Night mode should be supported
+
+TRAFFIC_SIGNAL_4	In Automode Pole light should Turn on as Below
+- For first x Second 
+      Pole A - Yellow off,Red off,Green on
+      Pole B - Yellow off,Red on,Green off
+      Pole C - Yellow off,Red on,Green off
+- For second x Second 
+      Pole A - Yellow off,Red on,Green off
+      Pole B - Yellow off,Red off,Green on
+      Pole C - Yellow off,Red on,Green off
+- For third x Second 
+      Pole A - Yellow off,Red on,Green off
+      Pole B - Yellow off,Red on,Green off
+      Pole C - Yellow off,Red off,Green on
+
+In Manual Mode Option Should be provided for user to activate and deactivate PoleA,PoleB,PoleC    Signal
+Activate - Yellow off,Red off,Green on
+Deactivate - Yellow off,Red on,Green off
+
+
+TRAFFIC_SIGNAL_5	Transication from green to red and red to green go through Yellow light
+
+TRAFFIC_SIGNAL_6	In Night mode yellow light should blink
+
+TRAFFIC_SIGNAL_7	user should provide option to activate night mode
