@@ -44,7 +44,6 @@ TrafficPole::SlowDown()
       mThreadSlowdown = std::thread(&TrafficPole::SlowdownThreadHandler,TrafficPole()); //started thread to blink yellow light
       mThreadSlowdown.detach();
       std::cout<<"SlowDown SlowDown"<<std::endl;
-      
    }  
 }
 

@@ -56,8 +56,38 @@ class TrafficJunction{
    
 }
 
+Void handle_traffic_control()
+{
+   
+   if(mode = Auto)
+   {
+       // start thread mThread_handle_automde 
+   startautomode() 
+   {
+       // start timer(,Automodetimer)
+      
+   }
+   }
+   else{
+       //stop timer
+
+       
+   }
+   //read condition variable
+   //wait untill thread stops
+
+}
+
 class TrafficControl{
     - TrafficJunction obj_TrafficJunction
+    TrafficControl()
+    {
+        initilizetrafficcontrol();
+    }
+    initilizetrafficcontrol{
+        std::thread (handle_traffic_control);
+        std::thread ( userinput)
+    }
 
     enum Mode{
        Invalid,
@@ -67,7 +97,15 @@ class TrafficControl{
     }
     void TrafficHandler()
     void AllowTraffic(int poleNo)
-    void SetMode(enum Mode)
+    void SetMode(enum Mode) ***
+       void Automodetimer()
+       {
+        int getcurrentpoleActive();
+       }    
+
+    private:
+    std::thread mThread_handle_automde;
+    std::thread mThread_userinput;
 }
 class MessageQueue{
     MessageQueue(){

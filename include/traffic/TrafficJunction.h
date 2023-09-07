@@ -4,6 +4,11 @@
 #include <gtest/gtest.h>
 #include <vector>
 
+enum trafficJunctionResult{
+    SUCCESS = 0,
+    ERROR_INVALID_NUMBER_OF_POLES = -1,
+    ERROR_INVALID_POLE_NUMBER = -2
+};
 class TrafficJunction
 {
     public:
@@ -23,7 +28,7 @@ class TrafficJunction
      * @req{TRAFFIC_SIGNAL_1} 
      * @endcoversreqs
      */
-    void InitalizeTrafficPoles();
+    trafficJunctionResult InitalizeTrafficPoles();
 
     /**
      * @brief Method to allow Traffic for selected Pole
@@ -35,7 +40,7 @@ class TrafficJunction
      * @req{TRAFFIC_SIGNAL_1} 
      * @endcoversreqs
      */
-    void AllowTraffic(int PoleNo);
+    trafficJunctionResult AllowTraffic(int PoleNo);
 
     /**
      * @brief Method to disable all traffic Poles
@@ -58,9 +63,30 @@ class TrafficJunction
      */
     void EnableSlowDown();
 
+    /**
+     * @brief Method to get active Pole no
+     * @details This method will return m_get_active_pole_no which represents pole is in GO state
+     * 
+     * @coversreqs
+     * @req{TRAFFIC_SIGNAL_6}
+     * @endcoversreqs
+     */
+    int get_active_pole_no();
+
+    /**
+     * @brief Method to get Total number Pole
+     * @details This method will return Total number Pole
+     * 
+     * @coversreqs
+     * @req{TRAFFIC_SIGNAL_6}
+     * @endcoversreqs
+     */
+    int getNoOfPole();
+
     private:
-    int mNoOfPole;
+    int mNoOfPole = 0;
     std::vector<std::unique_ptr<TrafficPole>> vct_trafficpole;
+    int m_get_active_pole_no;
 
     FRIEND_TEST(testTrafficJunction, InitalizeTraffic); 
     FRIEND_TEST(testTrafficJunction, AllowTraffic);
