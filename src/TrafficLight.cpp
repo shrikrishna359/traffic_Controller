@@ -15,5 +15,6 @@ TrafficLight::SwitchOff()
 
 bool TrafficLight::getLightState()
 {
+    std::cout<<"Getlight state\n";
     return lightState;
 }

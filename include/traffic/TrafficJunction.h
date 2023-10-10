@@ -86,7 +86,7 @@ class TrafficJunction
     private:
     int mNoOfPole = 0;
     std::vector<std::unique_ptr<TrafficPole>> vct_trafficpole;
-    int m_get_active_pole_no;
+    int m_get_active_pole_no = 1;
 
     FRIEND_TEST(testTrafficJunction, InitalizeTraffic); 
     FRIEND_TEST(testTrafficJunction, AllowTraffic);

@@ -26,6 +26,7 @@ TrafficJunction::InitalizeTrafficPoles()
 trafficJunctionResult 
 TrafficJunction::AllowTraffic(int PoleNo)
 {
+   std::cout<<"Allowtraffic Poleno "<<PoleNo << " vct_trafficpole.size() "<<vct_trafficpole.size() <<std::endl;
    trafficJunctionResult trafficJunctionResult1 = trafficJunctionResult::SUCCESS;
    if((PoleNo > 0) && (PoleNo < mNoOfPole))
    {

@@ -2,16 +2,29 @@
 #define TRAFFICCONTROLLER_HPP
 
 #include "TrafficJunction.h"
+#include <queue>
 enum Mode{
     Invalid,
     Auto,
     Manual,
     Night 
 };
-void handle_traffic_control(Mode mode,TrafficJunction* tTraffiObj);
+void handle_traffic_control(TrafficJunction* tTraffiObj);
 void startautomode(int timer,TrafficJunction* tTraffiObj);
-Mode getMode();
-Mode CurrentMode = Mode::Auto;
+static Mode getMode();
+static void setmode(Mode mode);
+static Mode CurrentMode = Mode::Auto;
+
+
+Mode
+getMode()
+{
+    return CurrentMode;
+}
+void setmode(Mode mode)
+{
+    CurrentMode = mode;
+}
 //int TrafficJunction::m_get_active_pole_no; // allocated storage space for the static variable(otherwise will throw error undefined reference to `TrafficJunction::m_get_active_pole_no')
 class TrafficController
 {
@@ -19,7 +32,6 @@ class TrafficController
     TrafficJunction* tTraffiObj = new TrafficJunction(4);
     TrafficController()
     {
-        
         initilizetrafficcontrol();
     }
     ~TrafficController()
@@ -28,6 +40,9 @@ class TrafficController
     }
     void initilizetrafficcontrol();
     void setMode(enum Mode);
+    static void acceptUserInput();
+    static std::queue<char> mInputQueue;
+     
     
     //static void startautomode(int timer);
     //int noofPoles = 3;
