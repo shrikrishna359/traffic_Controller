@@ -3,18 +3,26 @@
 
 #include "TrafficJunction.h"
 #include <queue>
+#include <thread>
+#include <condition_variable>
+
+
 enum Mode{
     Invalid,
     Auto,
     Manual,
-    Night 
+    Night,
+    Disable 
 };
 void handle_traffic_control(TrafficJunction* tTraffiObj);
 void startautomode(int timer,TrafficJunction* tTraffiObj);
 static Mode getMode();
 static void setmode(Mode mode);
 static Mode CurrentMode = Mode::Auto;
-
+// struct{
+//     char userinput;
+//     std::queue<char> manualInput;
+// }Input;
 
 Mode
 getMode()
@@ -42,7 +50,6 @@ class TrafficController
     void setMode(enum Mode);
     static void acceptUserInput();
     static std::queue<char> mInputQueue;
-     
     
     //static void startautomode(int timer);
     //int noofPoles = 3;
@@ -51,8 +58,13 @@ class TrafficController
     
     
     private:
-    std::thread mThread_userinput; // To get user input from 
+    std::thread mThread_userinput; // To get user input  
     std::thread mHandle_traffic_control; // TO handle traffic control (whether mode is auto or manual)
+
+    // std::mutex m;
+    
+    // std::unique_lock<std::mutex> ul(m);
+    // std::unique_lock<std::mutex> ul(m);
 };
 
 #endif  //#ifndef TRAFFICCONTROLLER_HPP

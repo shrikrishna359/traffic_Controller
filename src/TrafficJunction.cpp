@@ -22,25 +22,23 @@ TrafficJunction::InitalizeTrafficPoles()
    return trafficJunctionResult1;
 }
 
-// logs everywhwere
 trafficJunctionResult 
 TrafficJunction::AllowTraffic(int PoleNo)
 {
-   std::cout<<"Allowtraffic Poleno "<<PoleNo << " vct_trafficpole.size() "<<vct_trafficpole.size() <<std::endl;
+   std::cout<<"Allowtraffic Poleno "<<PoleNo << " vct_trafficpole.size() "<< vct_trafficpole.size() <<std::endl;
    trafficJunctionResult trafficJunctionResult1 = trafficJunctionResult::SUCCESS;
-   if((PoleNo > 0) && (PoleNo < mNoOfPole))
+   if((PoleNo > 0) && (PoleNo <= mNoOfPole))
    {
-      //try catch
-      for(int poleindex = 0; poleindex < vct_trafficpole.size(); poleindex++)
+      for(int poleindex = 1; poleindex < vct_trafficpole.size() + 1; poleindex++)
       {
-         if(poleindex != PoleNo-1)
+         if(poleindex != PoleNo)
          {
-            vct_trafficpole[poleindex]->Stop(); //turning off all pole except selected pole
-            std::cout << "Stopped Pole number: "<< poleindex+1 << std::endl;
+            vct_trafficpole[poleindex - 1]->Stop(); //turning off all pole except selected pole
+            std::cout << "Stopped Pole number: "<< poleindex << std::endl;
          }
       } 
       vct_trafficpole[PoleNo - 1]->Go(); //turning on Green light for selected Pole
-      std::cout << "Go Pole number: "<< PoleNo << std::endl;
+      std::cout << "Go Pole number: " << PoleNo << std::endl;
    }
    else
    {
@@ -52,7 +50,7 @@ TrafficJunction::AllowTraffic(int PoleNo)
 }
 
 void 
-TrafficJunction::DisableTraffic() //TODO : change to i to poleindex
+TrafficJunction::DisableTraffic() 
 {
    for(int poleindex = 0; poleindex < vct_trafficpole.size(); poleindex++)
    {
@@ -61,11 +59,12 @@ TrafficJunction::DisableTraffic() //TODO : change to i to poleindex
 }
 
 void 
-TrafficJunction::EnableSlowDown() //TODO : change to i to poleindex
+TrafficJunction::EnableSlowDown() 
 { 
    for(int poleindex = 0; poleindex < vct_trafficpole.size(); poleindex++)
    {
       vct_trafficpole[poleindex]->SlowDown();  // call Slowdown such that all pole should blink yellow light
+      std::cout<<"SlowDown pole no " << poleindex +1 <<std::endl;
    }   
 }
 
